@@ -1,0 +1,120 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	margin: 5px 0;
+}
+
+p {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+
+}
+
+/* TODO: Create reusable components */
+button {
+	border: none;
+	padding: 5px 20px;
+	background-color: #ED143D;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #FF4D6D;
+	transition: background-color 0.3s ease-in-out;
+}
+
+/* TODO: Make better use of element identifiers */
+#rps-game-container {
+	margin: 30px auto 0 auto;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+#game-mode {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+#scoreboard {
+	display: flex;
+	flex-direction: row;
+	gap: 42px;
+	text-align: center;
+}
+
+#scoreboard h2 {
+	text-transform: capitalize;
+}
+
+#game-options {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	margin: 12px 0;
+}
+
+#players {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	text-align: center;
+}
+
+#results {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#saved-games {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#saved-games li {
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 12px;
+}
+
+#controls {
+	display: flex;
+	flex-direction: row;
+	gap: 42px;
+    height: 125px;
+}
+
+#controls button {
+	border: none;
+	background-color: transparent;
+	font-size: 56px;
+    transition: all 500ms ease;
+}
+
+#controls button:hover {
+    font-size: 72px;
+}
+
+#rps-game .hidden {
+	display: none;
+}
+
+ul#games-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-end;
+}

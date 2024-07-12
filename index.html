@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>RPS Basic Game</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+
+   <body id="rps-game">
+      <div id="rps-game-container">
+         <h1>Rock Paper Scissors</h1>
+
+         <!-- hidden until game starts     -->
+         <div id="scoreboard" class="hidden">
+            <div id="player1">
+               <h2 id="player1-label">Player 1</h2>
+               <p>Wins: <span id="player1-wins">0</span></p>
+            </div>
+            <div id="player2">
+               <h2 id="player2-label">Player 2</h2>
+               <p>Wins: <span id="player2-wins">0</span></p>
+            </div>
+         </div>
+
+         <div id="game-mode">
+            <h2>Choose your game mode</h2>
+            <button data-mode="computer">vs computer</button>
+            <button data-mode="player">vs player</button> 
+         </div>
+
+         <div id="load-games">
+            <button type="button" id="load">Load Saved Games</button>
+         </div>
+
+         <!-- hidden until game starts --> 
+         <div id="players" class="hidden">
+            <div id="player1">
+               <h2>Player 1</h2>
+               <input type="text" id="player1-name" placeholder="Enter your name">
+            </div>
+            <div id="player2">
+               <h2>Player 2</h2>
+               <input type="text" id="player2-name" placeholder="Enter your name">
+            </div>
+            <!-- start button -->
+            <button id="start">Start</button>
+         </div>
+
+         <!-- hidden until game starts -->
+         <!-- message letting the user know who's turn it is -->
+         <div id="message" class="hidden">
+            <p id="message-text">No message yet</p>
+         </div>
+
+         <div id="controls" class="hidden">
+            <button data-choice="rock">✊🏻</button>
+            <button data-choice="paper">✋🏻</button>
+            <button data-choice="scissors">✌🏻</button>
+         </div>
+
+         <div id="results" class="hidden">
+            <h2>Results</h2>
+            <p id="results-text">No winner yet</p>
+         </div>
+
+         <!-- allow user to save or reset the game -->
+         <div id="game-options" class="hidden">
+            <button type="button" id="save">Save</button>
+            <button type="button" id="reset">Reset</button> 
+         </div>
+
+         <!-- load saved games -->
+         <div id="saved-games" class="hidden">
+            <h2>Saved Games</h2>
+            <ul id="games-list"></ul>
+         </div>
+      </div>
+
+      
+      <script src="script.js"></script>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+             game.init();
+         });
+      </script>
+      <!-- load raleway google font -->
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+   </body>
+</html>
