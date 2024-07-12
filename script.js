@@ -172,16 +172,17 @@ const game = {
 
             // add event listeners to the game controls
             game.elements.controls.querySelectorAll('button').forEach((button) => {
-                button.addEventListener('click', () => {
+                button.addEventListener('click', () => {    
                     if (game.state.winner !== null) return;
 
                     // Get the player who clicked the button
                     const player = game.state.players[game.state.turn];
 
                     // Set the player's choice in the game state
-                    player.lastChoice = button.dataset.choice;
+                    player.lastChoice = button.dataset.choice; 
 
-
+                    // Update the turn in the game state
+                    game.state.turn = game.state.turn === 0 ? 1 : 0;  
 
                     if (game.state.mode === 'computer') {
                         // Set the computer's choice
@@ -189,30 +190,26 @@ const game = {
 
                         const choices = ['rock', 'paper', 'scissors'];
                         game.state.players[1].lastChoice = choices[Math.floor(Math.random() * choices.length)];
-
+ 
                         game.state.turn = 0;
 
-                        setTimeout(() => {
+                        setTimeout(() => { 
                             game.elements.messageText.innerHTML = `It's ${game.state.players[game.state.turn].name}'s turn!`;
-
-                            game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)
+                            game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)    
                         }, 1000);
-                    }
+                    } 
 
-                    if (game.state.turn === 1 && game.state.mode !== 'computer') {
+                    if (game.state.turn === 1 && game.state.mode !== 'computer') {  
                         game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)
                     }
 
-                    // Update the turn in the game state
-                    game.state.turn = game.state.turn === 0 ? 1 : 0;
-
-                    if (game.state.mode !== 'computer') {
+                    if (game.state.mode !== 'computer'){
                         game.elements.messageText.innerHTML = `It's ${game.state.players[game.state.turn].name}'s turn!`;
                     }
-
+                     
                     if (game.state.winner !== null) {
                         game.elements.messageText.innerHTML = `Game is over!`;
-                        game.elements.resultsText.innerHTML = `${game.state.winner} wins the game!`;
+                        game.elements.resultsText.innerHTML = `${game.state.winner} wins the game!`; 
                     }
                 });
             });
