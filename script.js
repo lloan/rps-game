@@ -141,7 +141,7 @@ const game = {
 
 
     },
-    determineWinner: (player1Choice, player2Choice) => { 
+    determineWinner: (player1Choice, player2Choice) => {  
         if (player1Choice === player2Choice) {
             game.elements.resultsText.innerHTML = 'tie';
         } else if (
@@ -181,6 +181,10 @@ const game = {
                     // Set the player's choice in the game state
                     player.lastChoice = button.dataset.choice; 
 
+                    if (game.state.turn === 1 && game.state.mode !== 'computer') {  
+                        game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)
+                    }
+
                     // Update the turn in the game state
                     game.state.turn = game.state.turn === 0 ? 1 : 0;  
 
@@ -197,16 +201,14 @@ const game = {
                             game.elements.messageText.innerHTML = `It's ${game.state.players[game.state.turn].name}'s turn!`;
                             game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)    
                         }, 1000);
-                    } 
+                    }  
 
-                    if (game.state.turn === 1 && game.state.mode !== 'computer') {  
-                        game.determineWinner(game.state.players[0].lastChoice, game.state.players[1].lastChoice)
-                    }
-
+                    // if we are playing vs another player, we update the message
                     if (game.state.mode !== 'computer'){
                         game.elements.messageText.innerHTML = `It's ${game.state.players[game.state.turn].name}'s turn!`;
                     }
                      
+                    // If winner is set, let the players know who won
                     if (game.state.winner !== null) {
                         game.elements.messageText.innerHTML = `Game is over!`;
                         game.elements.resultsText.innerHTML = `${game.state.winner} wins the game!`; 
@@ -216,11 +218,7 @@ const game = {
 
             resolve();
         });
-    },
-    clearText: () => {
-        game.elements.resultsText.innerHTML = 'No winner yet';
-        game.elements.messageText.innerHTML = `It's ${game.state.players[game.state.turn].name}'s turn!`;
-    },
+    }, 
     gameOptions: () => {
         const save = document.getElementById('save');
         const reset = document.getElementById('reset');

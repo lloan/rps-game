@@ -1,6 +1,6 @@
 # Rock Paper Scissors (RPS) Basic Game
 
-This project implements a simple Rock, Paper, Scissors game where two players can compete against each other or against a computer. It features basic game mechanics, player input, game mode selection, saving/loading game states, and UI interactions. The game is built using HTML, CSS, and JavaScript, with a focus on modularity, responsiveness, and user experience. Due to time constraints, the project is a basic implementation and can be further enhanced with additional features and improvements in the future.
+This project implements a simple Rock, Paper, Scissors game where two players can compete against each other or against a computer. It features basic game mechanics, player input, game mode selection, saving/loading game states, and UI interactions. The game is built using HTML, CSS, and JavaScript, with a focus on modularity, responsiveness, and user experience. Due to time constraints, the project is a basic implementation and can be further enhanced with additional features and improvements in the future. 
 
 ## Features
 
